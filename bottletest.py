@@ -1,7 +1,8 @@
 from bottle import route, run, template
+import os
 
 @route('/')
 def index():
     return 'Hello World!'
 
-run( host = 'ec2-54-225-157-157.compute-1.amazonaws.com', port = 5432 )
+run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
